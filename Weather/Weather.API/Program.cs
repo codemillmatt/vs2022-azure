@@ -1,4 +1,7 @@
+using Microsoft.Azure.Cosmos;
 using Microsoft.Extensions.Azure;
+using Weather.API;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -7,6 +10,13 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+// all of these are from app settings
+builder.Services.AddSingleton<CityDataService>(new CityDataService(
+    builder.Configuration["Cosmos:ConnectionString"], 
+    builder.Configuration["Cosmos:DatabaseName"], 
+    builder.Configuration["Cosmos:CollectionId"])
+);
 
 builder.Services.AddAzureClients(clientBuilder =>
 {
