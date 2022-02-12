@@ -31,10 +31,5 @@ namespace Weather.API
 
             return cities;
         }
-
-        ~CityDataService()
-        {
-            _client.Dispose();
-        }
     }
 }

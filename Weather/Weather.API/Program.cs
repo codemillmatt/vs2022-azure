@@ -13,7 +13,7 @@ builder.Services.AddSwaggerGen();
 
 // all of these are from app settings
 builder.Services.AddSingleton<CityDataService>(new CityDataService(
-    builder.Configuration["Cosmos:ConnectionString"], 
+    builder.Configuration["ConnectionStrings:Cosmos"], 
     builder.Configuration["Cosmos:DatabaseName"], 
     builder.Configuration["Cosmos:CollectionId"])
 );
