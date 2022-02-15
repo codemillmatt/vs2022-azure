@@ -1,10 +1,11 @@
 ﻿@page
 @using Microsoft.Extensions.Configuration
+
 @inject IConfiguration Configuration
 
-@model IndexModel
+@model IndexModel 
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "PS Weather";
 }
 
 <style>
@@ -14,6 +15,34 @@
 </style>
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Welcome to PS Weather</h1>
+</div>
+
+<div class="card-group">
+        
+    @foreach(var forecast in Model.Forecasts)
+    {
+        <div class="card">
+            <div class="card-body">
+                <div class="card-title">
+                    <h5>@forecast.CityName</h5>
+                </div>
+                <div class="card-body">
+                    Temp: @forecast.TemperatureF F
+                </div>
+                <div class="card-body">
+                    Conditions: @forecast.Summary
+                </div>
+
+                <div class="card-body">
+                    <form method="post" asp-route-cityName="@forecast.CityName">
+                        <button class="btn btn-warning">Report Incorrect Info</button>
+                    </form>
+                </div>
+            </div>
+        </div>  
+        
+        
+    }
+
 </div>

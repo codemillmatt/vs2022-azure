@@ -22,7 +22,7 @@ namespace Weather.API.Controllers
 
         // POST api/<ReportErrorController>
         [HttpPost]
-        public IActionResult Post([FromBody] string value)
+        public IActionResult Post([FromQuery] string value)
         {
             var queue = _queueServiceClient.CreateQueue("badforecast");
 

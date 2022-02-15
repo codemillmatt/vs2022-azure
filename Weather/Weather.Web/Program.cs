@@ -6,7 +6,10 @@ builder.Host.ConfigureAppConfiguration(app =>
 {
     app.AddAzureAppConfiguration(connectionString);
 })
-    .ConfigureServices(services => {  services.AddRazorPages(); });
+.ConfigureServices(services => {  
+    services.AddRazorPages();
+    services.AddSingleton<Weather.Web.Services.WeatherForecastService>(new Weather.Web.Services.WeatherForecastService(new HttpClient(), builder.Configuration));
+});
 
 // Add services to the container.
 //builder.Services.AddRazorPages();
