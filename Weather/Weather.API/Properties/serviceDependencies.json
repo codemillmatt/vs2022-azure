@@ -8,13 +8,13 @@
       "type": "cosmosdb",
       "connectionId": "ConnectionStrings:Cosmos"
     },
-    "storage1": {
-      "type": "storage",
-      "connectionId": "azureite"
-    },
     "compute.appService1": {
       "group": "connections",
       "type": "compute.appService"
+    },
+    "storage1": {
+      "type": "storage",
+      "connectionId": "azureite"
     }
   }
 }
