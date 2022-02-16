@@ -1,8 +1,18 @@
 using Microsoft.Azure.Cosmos;
 using Microsoft.Extensions.Azure;
 using Weather.API;
+using Azure.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
+
+var vaultUri = Environment.GetEnvironmentVariable("VaultUri");
+if (!string.IsNullOrEmpty(vaultUri))
+{
+    var keyVaultEndpoint = new Uri(vaultUri);
+
+    builder.Configuration.AddAzureKeyVault(keyVaultEndpoint, new DefaultAzureCredential());
+}
+
 
 // Add services to the container.
 
@@ -27,11 +37,8 @@ builder.Services.AddAzureClients(clientBuilder =>
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.UseHttpsRedirection();
 

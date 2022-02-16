@@ -1,15 +1,20 @@
 {
   "dependencies": {
     "secrets1": {
-      "type": "secrets"
+      "type": "secrets",
+      "connectionId": "VaultUri"
+    },
+    "cosmosdb1": {
+      "type": "cosmosdb",
+      "connectionId": "ConnectionStrings:Cosmos"
     },
     "storage1": {
       "type": "storage",
       "connectionId": "azureite"
     },
-    "cosmosdb1": {
-      "type": "cosmosdb",
-      "connectionId": "ConnectionStrings:Cosmos"
+    "compute.appService1": {
+      "group": "connections",
+      "type": "compute.appService"
     }
   }
 }

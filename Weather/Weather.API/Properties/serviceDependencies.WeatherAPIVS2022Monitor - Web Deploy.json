@@ -1,0 +1,22 @@
+{
+  "dependencies": {
+    "secrets1": {
+      "secretStore": "AzureAppSettings",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.KeyVault/vaults/WeatherAPIMonitorvault",
+      "type": "secrets.keyVault",
+      "connectionId": "VaultUri"
+    },
+    "cosmosdb1": {
+      "secretStore": "AzureKeyVault",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.DocumentDB/databaseAccounts/vs2022-cosmos",
+      "type": "cosmosdb.azure",
+      "connectionId": "ConnectionStrings:Cosmos"
+    },
+    "storage1": {
+      "secretStore": "AzureKeyVault",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourcegroups/[parameters('resourceGroupName')]/providers/Microsoft.Storage/storageAccounts/weatherapistorage",
+      "type": "storage.azure",
+      "connectionId": "azureite"
+    }
+  }
+}
