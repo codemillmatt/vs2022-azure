@@ -1,4 +1,13 @@
+using Azure.Identity;
 var builder = WebApplication.CreateBuilder(args);
+
+var vaultUri = Environment.GetEnvironmentVariable("VaultUri");
+
+if (!string.IsNullOrEmpty(vaultUri))
+{
+    var keyVaultEndpoint = new Uri(vaultUri);
+    builder.Configuration.AddAzureKeyVault(keyVaultEndpoint, new DefaultAzureCredential());
+}
 
 var connectionString = builder.Configuration["AzureAppConfig"];
 
