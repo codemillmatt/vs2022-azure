@@ -19,6 +19,7 @@ builder.Host.ConfigureAppConfiguration(app =>
     services.AddRazorPages();
     services.AddSingleton<Weather.Web.Services.WeatherForecastService>(new Weather.Web.Services.WeatherForecastService(new HttpClient(), builder.Configuration));
 });
+builder.Services.AddApplicationInsightsTelemetry(builder.Configuration["APPLICATIONINSIGHTS_CONNECTION_STRING"]);
 
 // Add services to the container.
 //builder.Services.AddRazorPages();
