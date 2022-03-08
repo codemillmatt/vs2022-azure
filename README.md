@@ -1,6 +1,6 @@
 # Developing for Azure with Visual Studio 2022
 
-Hello! And welcome to the code repository for the Developing for Azure with Visual Studio 2022 course on Pluralsight.
+Hello! And welcome to the code repository for the [Developing for Azure with Visual Studio 2022 course on Pluralsight](https://pluralsight.pxf.io/BX1k79). Use [this link](https://pluralsight.pxf.io/c/1411097/1161410/7490) if you need a free trail to Pluralsight!
 
 The projects contained within are the 2 final projects with all of the Connected Services files already included.
 
