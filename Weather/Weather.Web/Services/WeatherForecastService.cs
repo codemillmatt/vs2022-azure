@@ -40,7 +40,7 @@ namespace Weather.Web.Services
             var weatherForCityUrl = _configuration["WeatherApp:WeatherForCityUrl"];
 
             HttpRequestMessage msg = new(HttpMethod.Get, 
-                $"{_apiUrl}{weatherForCityUrl}{cityName}");
+                $"{_apiUrl}{weatherForCityUrl}?cityName={cityName}");
 
             var response = await _httpClient.SendAsync(msg);
 
@@ -59,7 +59,7 @@ namespace Weather.Web.Services
             var reportErrorUrl = _configuration["WeatherApp:ReportErrorUrl"];
 
             HttpRequestMessage msg = new HttpRequestMessage(HttpMethod.Post,
-                $"{_apiUrl}{reportErrorUrl}{cityName}");
+                $"{_apiUrl}{reportErrorUrl}?value={cityName}");
 
             var response = await _httpClient.SendAsync(msg);
             response.EnsureSuccessStatusCode();

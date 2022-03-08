@@ -5,7 +5,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>eae29e06-8aac-4f5c-a617-48917cceb1c9</UserSecretsId>
-    <ApplicationInsightsResourceId>/subscriptions/e87bee3f-5a48-4748-b725-bcc261eeb8cd/resourceGroups/vs2022-monitoring/providers/microsoft.insights/components/WeatherWebAppInsights</ApplicationInsightsResourceId>
+    <ApplicationInsightsResourceId>/subscriptions/6e77c3aa-1953-4e72-bc5a-e72596026087/resourceGroups/vs2022-monitoring/providers/microsoft.insights/components/WeatherWebAppInsights</ApplicationInsightsResourceId>
   </PropertyGroup>
 
   <ItemGroup>
