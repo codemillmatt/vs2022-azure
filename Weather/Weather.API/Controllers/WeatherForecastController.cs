@@ -9,7 +9,7 @@ namespace Weather.API.Controllers
         private static readonly string[] Summaries = new[]
         {
         "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-    };
+        };
 
         private readonly ILogger<WeatherForecastController> _logger;
 
@@ -19,15 +19,17 @@ namespace Weather.API.Controllers
         }
 
         [HttpGet(Name = "GetWeatherForecast")]
-        public IEnumerable<WeatherForecast> Get()
+        public WeatherForecast Get([FromQuery]string cityName)
         {
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                Date = DateTime.Now.AddDays(index),
+            var forecast = new WeatherForecast
+            {  
+                Date = DateTime.Now,
                 TemperatureC = Random.Shared.Next(-20, 55),
-                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-            })
-            .ToArray();
+                Summary = Summaries[Random.Shared.Next(Summaries.Length)],
+                CityName = cityName
+            };
+
+            return forecast;
         }
     }
 }

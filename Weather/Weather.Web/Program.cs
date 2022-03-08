@@ -1,4 +1,13 @@
+using Azure.Identity;
 var builder = WebApplication.CreateBuilder(args);
+
+var vaultUri = Environment.GetEnvironmentVariable("VaultUri");
+
+if (!string.IsNullOrEmpty(vaultUri))
+{
+    var keyVaultEndpoint = new Uri(vaultUri);
+    builder.Configuration.AddAzureKeyVault(keyVaultEndpoint, new DefaultAzureCredential());
+}
 
 var connectionString = builder.Configuration["AzureAppConfig"];
 
@@ -6,7 +15,11 @@ builder.Host.ConfigureAppConfiguration(app =>
 {
     app.AddAzureAppConfiguration(connectionString);
 })
-    .ConfigureServices(services => {  services.AddRazorPages(); });
+.ConfigureServices(services => {  
+    services.AddRazorPages();
+    services.AddSingleton<Weather.Web.Services.WeatherForecastService>(new Weather.Web.Services.WeatherForecastService(new HttpClient(), builder.Configuration));
+});
+builder.Services.AddApplicationInsightsTelemetry(builder.Configuration["APPLICATIONINSIGHTS_CONNECTION_STRING"]);
 
 // Add services to the container.
 //builder.Services.AddRazorPages();

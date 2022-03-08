@@ -5,11 +5,15 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>eae29e06-8aac-4f5c-a617-48917cceb1c9</UserSecretsId>
+    <ApplicationInsightsResourceId>/subscriptions/6e77c3aa-1953-4e72-bc5a-e72596026087/resourceGroups/vs2022-monitoring/providers/microsoft.insights/components/WeatherWebAppInsights</ApplicationInsightsResourceId>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Azure.Identity" Version="1.3.0" />
-    <PackageReference Include="Microsoft.Azure.AppConfiguration.AspNetCore" Version="4.2.0" />
+    <PackageReference Include="Azure.Extensions.AspNetCore.Configuration.Secrets" Version="1.0.0" />
+    <PackageReference Include="Azure.Identity" Version="1.5.0" />
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.15.0" />
+    <PackageReference Include="Microsoft.Azure.AppConfiguration.AspNetCore" Version="4.5.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
 
 </Project>

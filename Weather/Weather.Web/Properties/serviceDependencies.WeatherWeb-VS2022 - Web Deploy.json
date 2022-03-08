@@ -1,21 +1,19 @@
 {
   "dependencies": {
     "secrets1": {
-      "type": "secrets.user"
+      "secretStore": "AzureAppSettings",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.KeyVault/vaults/WeatherAPIVS2022vault",
+      "type": "secrets.keyVault",
+      "connectionId": "VaultUri"
     },
     "appConfig1": {
-      "secretStore": "LocalSecretsFile",
+      "secretStore": "AzureKeyVault",
       "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.AppConfiguration/configurationStores/vs2022-appconfig",
       "type": "appConfig.azure",
       "connectionId": "AzureAppConfig"
     },
-    "compute.appService1": {
-      "group": "connections",
-      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Web/sites/WeatherWeb-VS2022",
-      "type": "compute.appService.windows"
-    },
     "appInsights1": {
-      "secretStore": "LocalSecretsFile",
+      "secretStore": "AzureAppSettings",
       "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/microsoft.insights/components/WeatherWebAppInsights",
       "type": "appInsights.azure",
       "connectionId": "APPLICATIONINSIGHTS_CONNECTION_STRING"
